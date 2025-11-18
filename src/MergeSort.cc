@@ -22,7 +22,7 @@ void merge(long arr[],long l,long m, long r) {
         k++;
     }
     while (i < n1) {
-        arr[k] = L[i];
+        arr[k] =L[i];
         i++;
         k++;
     }

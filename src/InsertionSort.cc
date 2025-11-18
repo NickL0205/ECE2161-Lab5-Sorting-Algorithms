@@ -11,7 +11,7 @@ void insertionSort(long arr[],long n){
             arr[j +1] = arr[j];
             j = j-1;
         }
-        arr[j +1]= g;
+        arr[j +1]=g;
     }
 }
 
