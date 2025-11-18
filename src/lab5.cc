@@ -190,7 +190,7 @@ int main() {
 
 				// Call your Sort function B here to sort the array 'wData'
 		        //  Note that 'wDdata' is of size 'sz' (see case 1).
-				MergeSort(wData, 0, sz);
+				MergeSort(wData, 0, sz-1);
 
 				end_time = clock();		// end cpu timer
 

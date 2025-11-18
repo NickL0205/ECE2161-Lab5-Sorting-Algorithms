@@ -33,7 +33,7 @@ void merge(long arr[],long l,long m, long r) {
     }
 }
 //Other function calling the one above (This is the actual mergesort)
-void MergeSort(long arr[], long l, long r) {
+void MergeSort(long arr[], int l, int r) {
     if (l >= r) return;
 
     long m = l+(r-l)/ 2;

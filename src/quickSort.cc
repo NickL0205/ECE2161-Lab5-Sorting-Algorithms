@@ -48,7 +48,7 @@ void r_quicksort(long data[], long first, long last) {
 
 
 //QuickSort Wrapper Function
-void QuickSort(long data[], long n) {
+void QuickSort(long data[], int n) {
     if (n < 2) return;
 
     //finding the largest element and move it to the very end

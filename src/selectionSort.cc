@@ -3,7 +3,7 @@
 
 #include "myheaders.h"
 
-void SelectionSort(long data[], long n) {
+void SelectionSort(long data[], int n) {
 	long i;
 	long j;
 	long least;
