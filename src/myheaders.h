@@ -1,3 +1,7 @@
+//Nicholas Licata, Amos Colocho, Jaelen Howell
+//Lab #5, ECE 2161-001
+//This file includes definitions of functions used throughout the entire program.
+
 // DO NOT forget to add the prototypes for your ASort, BSort, and other functions below!
 
 

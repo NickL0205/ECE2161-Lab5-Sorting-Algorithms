@@ -9,6 +9,12 @@
 //  stack space, run the following command from your terminal:
 //  ulimit -s 819200
 
+
+//Nicholas Licata, Amos Colocho, Jaelen Howell
+//Lab #5, ECE 2161-001
+//This program tests the running time of six different sorting algorithms to
+//test which ones are able to sort a large array of data the fastest.
+
 #include <iostream>
 #include <ctime>
 #include "myheaders.h"

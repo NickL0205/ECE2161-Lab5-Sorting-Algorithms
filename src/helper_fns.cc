@@ -1,3 +1,8 @@
+//Nicholas Licata, Amos Colocho, Jaelen Howell
+//Lab #5, ECE 2161-001
+//This program implements functions used in lab5.cc to help test the running
+//time of six different algorithms.
+
 #include <iostream>
 #include <fstream>
 #include "myheaders.h"
