@@ -10,7 +10,7 @@ void merge(long arr[],long l,long m, long r) {
     for (long j =0;j<n2;j++)
         R[j]= arr[m + 1 + j];
 
-    long i = 0, j=0,k =l;
+    long i = 0,j=0,k =l;
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
             arr[k]=L[i];
