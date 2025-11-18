@@ -12,8 +12,8 @@ void	printmenu() {
 			cout << endl;
 			cout << "Please choose from the following menu:" << endl;
 			cout << "  1: Read input file" << endl;
-			cout << "  2: Sort using Asort" << endl;
-			cout << "  3: Sort using Bsort" << endl;
+			cout << "  2: Sort using Bubble Sort" << endl;
+			cout << "  3: Sort using Shell Sort" << endl;
 			cout << "  4: Sort using Csort" << endl;
 			cout << "  5: Sort using Dsort" << endl;			
 			cout << "  6: Sort using Esort" << endl;
@@ -44,7 +44,6 @@ void	printarray(long data[], long size) {
 // function returns -1.
 
 int		readfile(string infilename, long d[]) {
-
 			long		i, size;
 			ifstream	infile;
 
@@ -55,7 +54,10 @@ int		readfile(string infilename, long d[]) {
 	
 			infile.open(infilename.c_str());
 
-			if (!infile.is_open()) { size = -1;}
+			if (!infile.is_open()) {
+				cerr << "ERROR: Could not open file: " << infilename << endl;
+				return -1;
+			}
 			else {
 				for (i = 0; (!infile.eof()) && (i < MAXSIZE); ++i) {
 					infile >> d[i];

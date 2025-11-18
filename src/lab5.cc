@@ -17,7 +17,7 @@ using namespace std;
 
 
 int main() {
-	
+	cout << "Program Started" << endl;
 	int		choice, sz;
 	long	data[MAXSIZE], wData[MAXSIZE];
 	double  begin_time, end_time, cpu_time_used;
@@ -34,7 +34,7 @@ int main() {
                     // The function 'readfile' returns the size of the file that was read
 					// If the file could not be read, 'readfile' returns -1
 				
-					ifilename = "lab5_input.txt";
+					ifilename = "lab5_input_small.txt";
 					sz = readfile(ifilename, data);
 			
 					if (sz < 0)	 {
@@ -47,22 +47,28 @@ int main() {
 					break;
 
 			case 2: // Sort function A
-
+					if (sz <= 0) {
+						cerr << "ERROR: No data loaded. Please read input file first (option 1)." << endl;
+						break;
+					}
                     // First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
-                    
+                    for (int i = 0; i < sz; ++i)
+                    	wData[i] = data[i];
                     
 					begin_time = clock();   // start cpu timer
 			
 					// Call your Sort function A here to sort the array 'wData''
 			        //  Note that 'wData' is of size 'sz' (see case 1).
-
+					BubbleSort(wData, sz);
 
 			
 					end_time = clock();		// end cpu timer
 
 					cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
-					cout << endl << "(A)Sort ran for " << cpu_time_used << " secs.";
-			
+					cout << endl << "Bubble Sort ran for " << cpu_time_used << " secs.";
+
+					if (sz < 50)
+						printarray(wData, sz);
 					ofilename = "lab5_A_out.txt";
 					writefile(wData, sz, ofilename);
 					
@@ -78,23 +84,21 @@ int main() {
 			case 3: // Sort function B
 			
 			        // First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
+					for (int i = 0; i < sz; ++i)
+						wData[i] = data[i];
 			        
-			        
-					begin_time = clock();   // start cpu timer
-			
-
 					begin_time = clock();   // start cpu timer
 			
 					// Call your Sort function B here to sort the array 'wData'
 			        //  Note that 'wDdata' is of size 'sz' (see case 1).
-
-
+					ShellSort(wData, sz);
 			
 					end_time = clock();		// end cpu timer
 
 					cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
-					cout << endl << "(B)Sort ran for " << cpu_time_used << " secs.";
-			
+					cout << endl << "Shell Sort ran for " << cpu_time_used << " secs.";
+					if (sz < 50)
+						printarray(wData, sz);
 					ofilename = "lab5_B_out.txt";
 					writefile(wData, sz, ofilename);
 					
