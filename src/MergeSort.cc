@@ -1,7 +1,7 @@
 //Amos Colocho
 //Merge function first
 void merge(long arr[], long l, long m, long r) {
-    long n1 = m-l + 1;
+    long n1 = m-l +1;
     long n2 = r -m;
     long L[n1], R[n2];
 

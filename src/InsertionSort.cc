@@ -2,7 +2,7 @@
 
 //Insertion Sort
 #include<iostream>
-//long variables to deal with larger data sets
+//long variables needed to deal with larger data sets
 void insertionSort(long arr[],long n) {
     for (long i =1; i< n; ++i) {
         long g=arr[i];
