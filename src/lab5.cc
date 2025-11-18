@@ -7,7 +7,7 @@
 //  This program declares *very* large arrays. If you have not increased your
 //  stack space, expect a segmentation fault. In order to increase your
 //  stack space, run the following command from your terminal:
-//  ulimit -s 819200
+//  ulimit -s 819200.
 
 
 //Nicholas Licata, Amos Colocho, Jaelen Howell
