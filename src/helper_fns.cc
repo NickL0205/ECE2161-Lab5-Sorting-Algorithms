@@ -1,3 +1,8 @@
+//Nicholas Licata, Amos Colocho, Jaelen Howell
+//Lab #5, ECE 2161-001
+//This program implements functions used in lab5.cc to help test the running
+//time of six different algorithms.
+
 #include <iostream>
 #include <fstream>
 #include "myheaders.h"
@@ -14,10 +19,10 @@ void	printmenu() {
 			cout << "  1: Read input file" << endl;
 			cout << "  2: Sort using Bubble Sort" << endl;
 			cout << "  3: Sort using Shell Sort" << endl;
-			cout << "  4: Sort using Csort" << endl;
-			cout << "  5: Sort using Dsort" << endl;			
-			cout << "  6: Sort using Esort" << endl;
-			cout << "  7: Sort using Fsort" << endl;			
+			cout << "  4: Sort using InsertionSort" << endl;
+			cout << "  5: Sort using MergeSort" << endl;
+			cout << "  6: Sort using QuickSort" << endl;
+			cout << "  7: Sort using SelectionSort" << endl;
 			cout << "  0: Exit program" << endl;
 			cout << endl << "Enter your choice: ";
 

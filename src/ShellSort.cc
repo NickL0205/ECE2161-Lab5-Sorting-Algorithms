@@ -1,3 +1,7 @@
+//Nicholas Licata
+//Lab #5, ECE 2161-001
+//This program implements the Shell Sort Algorithm
+
 #include "myheaders.h"
 
 void ShellSort(long data[], int sz){

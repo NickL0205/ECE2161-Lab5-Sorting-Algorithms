@@ -7,7 +7,13 @@
 //  This program declares *very* large arrays. If you have not increased your
 //  stack space, expect a segmentation fault. In order to increase your
 //  stack space, run the following command from your terminal:
-//  ulimit -s 819200
+//  ulimit -s 819200.
+
+
+//Nicholas Licata, Amos Colocho, Jaelen Howell
+//Lab #5, ECE 2161-001
+//This program tests the running time of six different sorting algorithms to
+// test which ones are able to sort a large array of data the fastest.
 
 #include <iostream>
 #include <ctime>
@@ -47,10 +53,13 @@ int main() {
 					break;
 
 			case 2: // Sort function A
+
+					//Check that data was loaded
 					if (sz <= 0) {
 						cerr << "ERROR: No data loaded. Please read input file first (option 1)." << endl;
 						break;
 					}
+
                     // First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
                     for (int i = 0; i < sz; ++i)
                     	wData[i] = data[i];
@@ -67,9 +76,12 @@ int main() {
 					cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
 					cout << endl << "Bubble Sort ran for " << cpu_time_used << " secs.";
 
+					//For testing small files, if the size is small then print the array
 					if (sz < 50)
 						printarray(wData, sz);
-					ofilename = "lab5_A_out.txt";
+
+					//Save sorted data to output file
+					ofilename = "lab5_BubbleSort_out.txt";
 					writefile(wData, sz, ofilename);
 					
 					if (sz < 0)	 {
@@ -82,7 +94,13 @@ int main() {
 					break;
 
 			case 3: // Sort function B
-			
+
+					//Check that data was loaded
+					if (sz <= 0) {
+						cerr << "ERROR: No data loaded. Please read input file first (option 1)." << endl;
+						break;
+					}
+
 			        // First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
 					for (int i = 0; i < sz; ++i)
 						wData[i] = data[i];
@@ -97,9 +115,13 @@ int main() {
 
 					cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
 					cout << endl << "Shell Sort ran for " << cpu_time_used << " secs.";
+
+					//For testing small datasets, print to confirm algorith function
 					if (sz < 50)
 						printarray(wData, sz);
-					ofilename = "lab5_B_out.txt";
+
+					//Save sorted data to output file
+					ofilename = "lab5_ShellSort_out.txt";
 					writefile(wData, sz, ofilename);
 					
 					if (sz < 0)	 {
@@ -112,7 +134,165 @@ int main() {
 					break;
 					
 			// Write the other cases 4 - 7 here		
-			
+			case 4: //Sort Function C
+
+				//Check that data was loaded
+				if (sz <= 0){
+					cerr << "ERROR: No data loaded. Please read input file first (option 1)." << endl;
+					break;
+				}
+
+				// First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
+				for (int i = 0; i < sz; ++i)
+					wData[i] = data[i];
+
+				begin_time = clock();   // start cpu timer
+
+				// Call your Sort function B here to sort the array 'wData'
+		        //  Note that 'wDdata' is of size 'sz' (see case 1).
+				InsertionSort(wData, sz);
+
+				end_time = clock();		// end cpu timer
+
+				cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC; //Calculate algorithm run time
+				cout << endl << "Insertion Sort ran for " << cpu_time_used << " secs.";
+
+				//For testing small files, if the size is small then print the array
+				if (sz < 50)
+					printarray(wData, sz);
+
+				//Save sorted data to output file
+				ofilename = "lab5_InsertionSort_out.txt";
+				writefile(wData, sz, ofilename);
+
+				if (sz < 0)	 {
+					 cerr << endl << "ERROR: Output File could not be opened." <<endl;
+					 cerr << "       Quitting Now!" << endl << endl;
+					 return 0;
+				}
+				else cout << endl << "Output written to " << ofilename << endl;
+
+				break;
+
+			case 5: //Sort Function D
+
+				//Check that data was loaded
+				if (sz <= 0){
+					cerr << "ERROR: No data loaded. Please read input file first (option 1)." << endl;
+					break;
+				}
+
+				// First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
+				for (int i = 0; i < sz; ++i)
+					wData[i] = data[i];
+
+				begin_time = clock();   // start cpu timer
+
+				// Call your Sort function B here to sort the array 'wData'
+		        //  Note that 'wDdata' is of size 'sz' (see case 1).
+				MergeSort(wData, sz);
+
+				end_time = clock();		// end cpu timer
+
+				cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
+				cout << endl << "Merge Sort ran for " << cpu_time_used << " secs.";
+
+				//For testing small files, if the size is small then print the array
+				if (sz < 50)
+					printarray(wData, sz);
+
+				//Save sorted data to output file
+				ofilename = "lab5_MergeSort_out.txt";
+				writefile(wData, sz, ofilename);
+
+				if (sz < 0)	 {
+					 cerr << endl << "ERROR: Output File could not be opened." <<endl;
+					 cerr << "       Quitting Now!" << endl << endl;
+					 return 0;
+				}
+				else cout << endl << "Output written to " << ofilename << endl;
+
+				break;
+
+			case 6: //Sort Function E
+
+				//Check that data was loaded
+				if (sz <= 0){
+					cerr << "ERROR: No data loaded. Please read input file first (option 1)." << endl;
+					break;
+				}
+
+				// First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
+				for (int i = 0; i < sz; ++i)
+					wData[i] = data[i];
+
+				begin_time = clock();   // start cpu timer
+
+				// Call your Sort function B here to sort the array 'wData'
+		        //  Note that 'wDdata' is of size 'sz' (see case 1).
+				QuickSort(wData, sz);
+
+				end_time = clock();		// end cpu timer
+
+				cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
+				cout << endl << "Quick Sort ran for " << cpu_time_used << " secs.";
+
+				//For testing small files, if the size is small then print the array
+				if (sz < 50)
+					printarray(wData, sz);
+
+				//Save sorted data to output file
+				ofilename = "lab5_QuickSort_out.txt";
+				writefile(wData, sz, ofilename);
+
+				if (sz < 0)	 {
+					 cerr << endl << "ERROR: Output File could not be opened." <<endl;
+					 cerr << "       Quitting Now!" << endl << endl;
+					 return 0;
+				}
+				else cout << endl << "Output written to " << ofilename << endl;
+
+				break;
+
+			case 7: //Sort Function F
+
+				if (sz <= 0){
+					cerr << "ERROR: No data loaded. Please read input file first (option 1)." << endl;
+					break;
+				}
+
+				// First, copy the contents of the array 'data' to the working array 'wData'. Your program should sort 'wData' and not 'data'.
+				for (int i = 0; i < sz; ++i)
+					wData[i] = data[i];
+
+				begin_time = clock();   // start cpu timer
+
+				// Call your Sort function B here to sort the array 'wData'
+		        //  Note that 'wDdata' is of size 'sz' (see case 1).
+				SelectionSort(wData, sz);
+
+				end_time = clock();		// end cpu timer
+
+				cpu_time_used = (end_time - begin_time) / CLOCKS_PER_SEC;
+				cout << endl << "Selection Sort ran for " << cpu_time_used << " secs.";
+
+				//For testing small files, if the size is small then print the array
+				if (sz < 50)
+					printarray(wData, sz);
+
+				//Save sorted data to output file
+				ofilename = "lab5_SelectionSort_out.txt";
+				writefile(wData, sz, ofilename);
+
+				if (sz < 0)	 {
+					 cerr << endl << "ERROR: Output File could not be opened." <<endl;
+					 cerr << "       Quitting Now!" << endl << endl;
+					 return 0;
+				}
+				else cout << endl << "Output written to " << ofilename << endl;
+
+				break;
+
 			case 0: // Exit Program
 
 					cout << endl << "Received program exit command - I QUIT!" << endl << endl;
