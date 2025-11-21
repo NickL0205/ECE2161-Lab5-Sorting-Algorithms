@@ -40,7 +40,7 @@ int main() {
                     // The function 'readfile' returns the size of the file that was read
 					// If the file could not be read, 'readfile' returns -1
 				
-					ifilename = "lab5_input_small.txt";
+					ifilename = "lab5_input.txt";
 					sz = readfile(ifilename, data);
 			
 					if (sz < 0)	 {

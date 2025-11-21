@@ -72,7 +72,7 @@ int		readfile(string infilename, long d[]) {
 				infile.close();
 			} // else
 	
-			return size;
+			return size/2;
 }
 
 
